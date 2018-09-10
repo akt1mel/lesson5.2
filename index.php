@@ -3,6 +3,11 @@
 session_start();
 require_once ('data/functions.php');
 
+if($_SESSION['user']) {
+  header("Location: list.php");
+}
+
+
 if(!empty($_POST)){
     $errors = [];
 
@@ -17,6 +22,7 @@ if(!empty($_POST)){
 
     if ($_POST['guest']) {
         $_SESSION['user'] = "guest";
+        $_SESSION['name'] = $_POST['login'];
         header("Location: list.php");
         die;
     }

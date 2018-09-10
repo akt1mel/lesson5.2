@@ -1,5 +1,10 @@
 <?php
 
+if (!$_SESSION['user']) {
+    echo "доступ запрещен";
+    header('HTTP/1.0 403 Forbidden');
+    exit;
+}
 
 if (!empty($_FILES)) {
     $uploadsDir = 'tests/';
@@ -43,5 +48,7 @@ if (isset($_POST)) {
     <li><a href="admin.php">Загрузка теста</a></li>
     <li><a href="list.php">Список тестов</a></li>
 </ul>
+
+<a href="data/logout.php">Выход</a>
 </body>
 </html>

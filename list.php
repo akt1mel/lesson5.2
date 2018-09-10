@@ -24,6 +24,8 @@ if ($_GET['del']) {
 <body>
 <h1>Список тестов</h1>
 
+<h2>Здравствуйте, <?= $_SESSION['name']?> </h2>
+
 <?php
 foreach ($testFiles as $test){
     $testName = str_replace("tests/", "", $test);
@@ -44,6 +46,8 @@ foreach ($testFiles as $test){
     ?>
     <li><a href="list.php">Список тестов</a></li>
 </ul>
+
+<a href="data/logout.php">Выход</a>
 
 </body>
 </html>

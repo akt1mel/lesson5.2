@@ -22,7 +22,6 @@ $result = 0;
 <body>
 <h1>Тест</h1>
 
-
 <form action="certificate.php" method="POST">
   <input type="hidden" name="test-name" value="<?=$testName;?>">
     <?php foreach ($test as $key => $value) {
@@ -51,9 +50,15 @@ $result = 0;
 ?>
 
 <ul>
-    <li><a href="admin.php">Загрузка теста</a></li>
+  <?php
+      if ($_SESSION['user'] != 'guest') {
+      echo "<li><a href='admin.php'>Загрузка теста</a></li>";
+      }
+  ?>
     <li><a href="list.php">Список тестов</a></li>
 </ul>
+
+<a href="data/logout.php">Выход</a>
 
 </body>
 </html>
